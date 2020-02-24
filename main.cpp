@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-   Item inventory[3];
+   Item* inventory[3];
 
    SportsCard myCard(1990, "Good", "Nolan Ryan", "Tops");
    Coin myCoin(1901, "Penny", 5);
@@ -18,14 +18,14 @@ int main()
    cout << myCoin.toString() << endl;
    cout << myComic.toString() << endl;
 
-   /*inventory[0] = myCard;
-   inventory[1] = myCoin;
-   inventory[2] = myComic;
+   inventory[0] = &myCard;
+   inventory[1] = &myCoin;
+   inventory[2] = &myComic;
 
    for (int i = 0; i < 3; i++)
    {
-      cout << inventory[i].toString() << endl;
-   }*/
+      cout << inventory[i]->toString() << endl;
+   }
 
    return 0;
 }

@@ -8,5 +8,5 @@ Item::Item(int year, std::string grade) :
 
 std::string Item::toString() const
 {
-   return year + " " + grade;
+   return std::to_string(year) + " " + grade;
 }

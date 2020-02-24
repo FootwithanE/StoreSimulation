@@ -8,5 +8,5 @@ Coin::Coin(int year, std::string type, int grade) :
 
 std::string Coin::toString() const
 {
-   return Item::toString() + " " + type;
+   return Item::toString() + std::to_string(grade) + " " + type;
 }
