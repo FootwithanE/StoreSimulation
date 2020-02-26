@@ -30,7 +30,15 @@ private:
    Inventory* customersByName;
 
 public:
+   // Default constructor
    Store();
+
+   /* adds customer to customerByID and customersByName
+      ...will call private methods to complete this
+   */
+   bool addCustomer(const int id, const std::string name);
+
+   bool sellItem(int id, )
 
 
 };

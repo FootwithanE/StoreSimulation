@@ -24,6 +24,10 @@ private:
 
 public:
    Customer();
+
+   // Perform deep destruction
+   virtual ~Customer();
+
    void display();
 
    /* Overloaded equal to operator compares two Customer objects
