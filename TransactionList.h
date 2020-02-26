@@ -22,23 +22,36 @@ enum TransType
 };
 
 // InventoryNode to track item, count and transaction type
-struct TransactionInventoryNode
+struct TransactionNode
 {
    // Does not keep actual item - avoid dynamic memory
    std::string itemDescription;
    int count;
    TransType transaction;
-   TransactionInventoryNode* next;
+   TransactionNode* next;
+   TransactionNode(std::string item, int count, TransType type) : next(nullptr) {};
 };
 
 // Linked list methods
 class TransactionList
 {
 private:
-   TransactionInventoryNode* headPtr;
+   TransactionNode* headPtr;
 
 public:
    TransactionList();
+
+   /* newTransaction will build new TransactionNode to hold relevant 
+      transaction data, which will then be added to the front of the list
+   */
+   void newTransaction(std::string item, int count, TransType type);
+      // TransactionNode nn(item, count, type);
+      // if headptr nullptr -> headptr = nn
+      // else
+      // nn -> next = headptr->next : headptr -> next = nn
+
+   /* Will print relevant transaction data in easily read format
+   */
    friend ostream& operator << (ostream& os, const TransactionList& list);
 };
 

@@ -1,7 +1,8 @@
 #pragma once
+#include "Comparable.h"
 #include <string>
 
-class Item
+class Item : public Comparable
 {
 protected:
    int year;
@@ -10,6 +11,7 @@ protected:
 public:
    Item();
    Item(int year, std::string grade);
+   virtual ~Item();
    virtual std::string toString() const;
 };
 

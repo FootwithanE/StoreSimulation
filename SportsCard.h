@@ -9,8 +9,8 @@ protected:
 
 public:
    SportsCard();
-   SportsCard(int year, std::string grade,
-      std::string player, std::string manufacturer);
+   SportsCard(int year, std::string grade, std::string player, 
+         std::string manufacturer);
    std::string toString() const;
 };
 

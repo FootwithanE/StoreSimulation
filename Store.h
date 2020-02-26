@@ -29,6 +29,9 @@ private:
    // Customers by Name (BST)
    Inventory* customersByName;
 
+public:
+   Store();
+
 
 };
 
