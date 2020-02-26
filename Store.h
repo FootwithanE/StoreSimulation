@@ -12,6 +12,7 @@
 
 
 #pragma once
+#include <sstream>
 #include "Inventory.h"
 #include "Customer.h"
 
@@ -28,17 +29,47 @@ private:
    Customer customersById[MAX_CUSTOMERS];
    // Customers by Name (BST)
    Inventory* customersByName;
+   
+
+
+
+   bool sell(int id, char itemType, std::string param);
+   // call buildFactory for itemType
+   //    pass arguments from string
+   // return Item
+
+
 
 public:
    // Default constructor
    Store();
 
    /* adds customer to customerByID and customersByName
-      ...will call private methods to complete this
+      Creates new customer
    */
    bool addCustomer(const int id, const std::string name);
 
-   bool sellItem(int id, )
+   /* Takes first three arguments of transaction and
+      makes decision on transaction type, customer
+      association, and item type to create for
+      inventory
+   */
+   bool commandDecision(std::string line);
+      // stringstream ss(line) -> line whole line of command
+      // begin parsing by token and ','
+      //    if s and customer exists call sell and pass itemType 
+      //                      and remaining string from ss
+      //       return true
+      //    if b and customer exists call buy and pass itemType
+      //       return true
+      //    if d call display
+      //       return true
+      //    if c and customer exits call Customer display
+      //       return true
+      //    if H call History
+      //       return true
+      //    else false
+      //
 
 
 };

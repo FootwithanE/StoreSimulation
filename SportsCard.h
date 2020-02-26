@@ -27,7 +27,7 @@ public:
       Postcondition: true if both SportsCard objects have a different
          player, year, manufacturer, or grade; false if they are the same
    */
-   virtual bool operator == (const Comparable& obj) const;
+   virtual bool operator != (const Comparable& obj) const;
    // const SportsCard *c = dynamic_cast(obj)
    // true if c != this player, year, manufacturer, or grade
 
