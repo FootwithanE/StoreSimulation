@@ -8,7 +8,16 @@ protected:
    std::string manufacturer;
 
 public:
+   /* default constructor
+      Preconditions: none
+      Postconditions: new Sportscard Item
+   */
    SportsCard();
+
+   /* parameterized SportsCard constructor
+      Preconditions: none
+      Postconditions: 
+   */
    SportsCard(int year, std::string grade, std::string player, 
          std::string manufacturer);
    std::string toString() const;

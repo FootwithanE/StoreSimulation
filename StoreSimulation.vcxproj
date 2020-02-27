@@ -149,7 +149,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SportsCard.cpp" />
     <ClCompile Include="Store.cpp" />
-    <ClCompile Include="TransactionList.cpp" />
+    <ClCompile Include="Transaction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coin.h" />
@@ -161,7 +161,7 @@
     <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="SportsCard.h" />
     <ClInclude Include="Store.h" />
-    <ClInclude Include="TransactionList.h" />
+    <ClInclude Include="Transaction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

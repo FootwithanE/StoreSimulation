@@ -29,16 +29,11 @@ private:
    Customer customersById[MAX_CUSTOMERS];
    // Customers by Name (BST)
    Inventory* customersByName;
-   
-
-
 
    bool sell(int id, char itemType, std::string param);
    // call buildFactory for itemType
    //    pass arguments from string
    // return Item
-
-
 
 public:
    // Default constructor
@@ -48,6 +43,7 @@ public:
       Creates new customer
    */
    bool addCustomer(const int id, const std::string name);
+
 
    /* Takes first three arguments of transaction and
       makes decision on transaction type, customer

@@ -39,13 +39,13 @@
     <ClCompile Include="Customer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TransactionList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Comparable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ItemFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transaction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,13 +71,13 @@
     <ClInclude Include="Customer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TransactionList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Comparable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ItemFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transaction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

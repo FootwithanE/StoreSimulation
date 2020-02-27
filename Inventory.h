@@ -122,6 +122,7 @@ public:
 
 private:
    InventoryNode* root;
+
    /* private recursive helper method deepCopy is called by copy constructor and
       overloaded assignment operator
       Preconditions: valid arguments passed to copy constructor or assignment operator
@@ -129,11 +130,13 @@ private:
          but no memory is shared between InventoryNodes.
    */
    InventoryNode* deepCopy(InventoryNode* cur);
+
    /* private recursive helper method destroyTree is called by destructor and makeEmpty
       Preconditions: none
       Postconditions: removal of all InventoryNodes and freeing of all memory associated with Inventory
    */
    void destroyTree(InventoryNode*& root);
+
    /* private recursive helper method insert is called by public insert method
       Preconditions: called if root != nullptr && obj != nullptr
       Postconditions: If instance of Comparable object is already held in a InventoryNode
@@ -143,12 +146,14 @@ private:
          the properties of a binary search tree.
    */
    bool insert(InventoryNode* cur, Comparable* obj);
+
    /* private recursive helper method inOrder is called by overloaded ostream operator
       Preconditions: none
       Postconditions: ostream object passed by reference will containg Inventory information
          in order in a frequency table.
    */
    void inOrder(std::ostream& os, InventoryNode* cur) const;
+
    /* private recursive helper method remove is called by public method remove
       Preconditions: valid arguments passed to remove public
       Postconditions: Returns true if the Comparable key could be located in the Inventory.
@@ -157,6 +162,7 @@ private:
          properties of binary search tree.
    */
    bool remove(InventoryNode*& root, const Comparable& key);
+
    /* private recursive helper method deleteInventoryNode is called by private method remove
       Preconditions: the Comparable key was located and frequency == 1
       Postconditions: InventoryNode containing Comparable key is removed from Inventory. All
@@ -164,18 +170,21 @@ private:
          properties of a binary search tree.
    */
    void deleteInventoryNode(InventoryNode*& root);
+
    /* private recursive helper method finMinValueRight is called by deleteInventoryNode
       Precondition: Comparable key was located on InventoryNode with two children != nullptr
       Postcondition: pointer to copy of InventoryNode containing Comparable key is returned
             in order to access multiple data members of InventoryNode structs.
    */
    InventoryNode* findMinValueRight(InventoryNode*& root);
+
    /* private recursive helper method retrieve is called by public method retrieve
       Preconditions: none
       Postconditions: if Comparable object located matching provided key, pointer to that
          Comparable is returned. If it cannot be located, nullptr is returned.
    */
    const Comparable* retrieve(InventoryNode* root, const Comparable& key);
+
    /* private recursive helper method compareTrees is called by overloaded equal to and
       not equal to operators
       Preconditions: is called if root and obj.root are not the same InventoryNode
@@ -184,12 +193,14 @@ private:
          false.
    */
    bool compareTrees(InventoryNode* root, const InventoryNode* other) const;
+
    /* private recursive helper method getHeight is called by height method
       Preconditions: is called if InventoryNode returned from finInventoryNodeForHeight != nullptr and
          not a leaf of the tree
       Postconditions: returns height of located InventoryNode as int
    */
    int getHeight(InventoryNode* root) const;
+
    /* private recursive helper method findInventoryNodeForHeight is called by height method
       Preconditions: Comparable obj != nullptr
       Postconditions: searches for and returns pointer to InventoryNode where Comparable

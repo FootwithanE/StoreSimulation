@@ -5,13 +5,14 @@
    Customer class represents a single store customer.
    Customer inherits from Comparable in order to be used
    within a BST. Each customer will hold data members for
-   their unique customer ID, name, and a TransactionList
-   which will hold all their transactions history.
+   their unique customer ID, name, and a Transaction
+   vector which will hold all their transactions history.
 
 */
 #pragma once
 #include <string>
-#include "TransactionList.h"
+#include <vector>
+#include "Transaction.h"
 #include "Comparable.h"
 
 
@@ -20,15 +21,37 @@ class Customer : public Comparable
 private:
    int id;
    std::string name;
-   TransactionList* transactions;
+   std::vector<Transaction> transactions;
 
 public:
+   /* Default Customer constructor
+      Preconditions: none
+      Postconditions: new Customer object
+   */
    Customer();
 
-   // Perform deep destruction
+   /* Parameterized constructor for Customer
+      Preconditions: none
+      Postconditions: new Customer class object, intialized
+         to the provided values with an empty transactions vector
+   */
+   Customer(int id, std::string name) : id(id), name(name) {};
+
+   /* default destructor
+      Preconditions: none
+      Postconditions: Customer and all transaction information removed
+   */
    virtual ~Customer();
 
-   void display();
+   /* add a new transaction for this customer
+      Precondition: none
+      Postcondition: new transaction history add to end of transactions
+         for customer
+   */
+   void addTransaction(std::string item, int count, TransType type);
+      // transaction.pushback(new transaction(item, count, type))
+      //
+
 
    /* Overloaded equal to operator compares two Customer objects
        Preconditions: item and obj.item are each a string
