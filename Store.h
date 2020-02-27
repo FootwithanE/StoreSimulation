@@ -55,6 +55,21 @@ public:
       //    return true
       // else false
 
+   /* addItem takes in item information and fills inventory of store
+      Preconditions: itemInfo contains all necessary information in
+         correct format
+      Postconditions: items, including frequency, are added to the
+         store inventory in the correct item inventory
+   */
+   bool addItem(const char id, const int num, std::string info);
+         // uses char item identifier on HashSet items
+         // returns new correct derived Item to Item*
+         //       use info to complete Item data
+         //       if something missing - return false
+         // add into correct inventory (Inventory.insert(item))
+         //       if already exists increase frequency
+         // return true
+
    /* add item to the correct inventory
       Preconditions: itemInfo contains all necessary information in
          correct format
