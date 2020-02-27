@@ -42,10 +42,10 @@
     <ClCompile Include="Comparable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ItemFactory.cpp">
+    <ClCompile Include="Transaction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Transaction.cpp">
+    <ClCompile Include="HashSet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,10 +74,10 @@
     <ClInclude Include="Comparable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ItemFactory.h">
+    <ClInclude Include="Transaction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Transaction.h">
+    <ClInclude Include="HashSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

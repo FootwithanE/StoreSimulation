@@ -1,3 +1,12 @@
+/* SportsCard.h
+   Author: Stephen Foote
+   -----------------------------------------------------------------------
+   Class SportsCard is derived from class Item. Class SportsCard is meant to be used as
+   collectible Item in Store Simulation. It inherits the year and grade from
+   Item and add additional members, player and manufacturer.
+
+*/
+
 #pragma once
 #include "Item.h"
 
@@ -16,11 +25,17 @@ public:
 
    /* parameterized SportsCard constructor
       Preconditions: none
-      Postconditions: 
+      Postconditions: new Sportcard Item object with members set
+         to provided parameters
    */
    SportsCard(int year, std::string grade, std::string player, 
          std::string manufacturer);
-   std::string toString() const;
+
+   /* default virtual destructor
+      Preconditions: none
+      Postconditions: none
+   */
+   ~SportsCard();
 
    /* Overloaded equal to operator compares two SportsCard objects
       Preconditions: item and obj.item are instance of SportsCard
@@ -70,5 +85,13 @@ public:
          of the Sportscard
    */
    virtual std::string toString() const;
+
+   /* factory method
+      Preconditions: enough memory to allocate for new object
+      Postconditions: new empty SportsCard object
+   */
+   virtual SportsCard* create();
+   // return new SportsCard()
+
 };
 

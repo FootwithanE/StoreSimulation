@@ -143,9 +143,9 @@
     <ClCompile Include="Comic.cpp" />
     <ClCompile Include="Comparable.cpp" />
     <ClCompile Include="Customer.cpp" />
+    <ClCompile Include="HashSet.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SportsCard.cpp" />
     <ClCompile Include="Store.cpp" />
@@ -156,9 +156,9 @@
     <ClInclude Include="Comic.h" />
     <ClInclude Include="Comparable.h" />
     <ClInclude Include="Customer.h" />
+    <ClInclude Include="HashSet.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="SportsCard.h" />
     <ClInclude Include="Store.h" />
     <ClInclude Include="Transaction.h" />

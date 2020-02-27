@@ -1,3 +1,12 @@
+/* Coin.h
+   Author: Stephen Foote
+   -----------------------------------------------------------------------
+   Class Coin is derived from class Item. Class Coin is meant to be used as
+   collectible Item in Store Simulation. It inherits the year from class
+   Item, but hides Item's grade (string) and instead uses an int.
+
+*/
+
 #pragma once
 #include "Item.h"
 
@@ -8,8 +17,24 @@ protected:
    int grade;
 
 public:
+   /* default constructor
+      Preconditions: none
+      Postconditions: new Coin Item
+   */
    Coin();
+
+   /* parameterized Coin constructor
+      Preconditions: none
+      Postconditions: new Coin Item object with members set
+         to provided parameters
+   */
    Coin(int year, std::string type, int grade);
+
+   /* default virtual destructor
+      Preconditions: none
+      Postconditions: none
+   */
+   ~Coin();
 
    /* Overloaded equal to operator compares two Coin objects
       Preconditions: item and obj.item are instance of Coin
@@ -18,7 +43,7 @@ public:
    */
    virtual bool operator == (const Comparable& obj) const;
    // const Coin *c = dynamic_cast(obj)
-   // true if c == this player, year, manufacturer, and grade
+   // true if c == this type, year, and grade
 
 /* Overloaded equal to operator compares two Coin objects
    Preconditions: item and obj.item are instance of Coin
@@ -27,7 +52,7 @@ public:
 */
    virtual bool operator != (const Comparable& obj) const;
    // const Coin *c = dynamic_cast(obj)
-   // true if c != this player, year, manufacturer, or grade
+   // true if c != this type, year or grade
 
    /* Overloaded less than operator to compare two Coin objects
       Preconditions: item and obj.item are instance of Coin
@@ -47,7 +72,7 @@ public:
    virtual bool operator > (const Comparable& obj) const;
    // const Customer *c = dynamic_cast(obj)
    // return this > c : first by type,
-   // then year, and then grade
+   // then year and then grade
 
    /* Output of Coin item through method toString
        Preconditions: none
@@ -55,6 +80,13 @@ public:
          of the Coin
    */
    virtual std::string toString() const;
+
+   /* factory method
+      Preconditions: enough memory to allocate for new object
+      Postconditions: new empty Coin object
+   */
+   virtual Coin* create();
+      // return new Coin()
 
 };
 

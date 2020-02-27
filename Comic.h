@@ -1,3 +1,12 @@
+/* Comic.h
+   Author: Stephen Foote
+   -----------------------------------------------------------------------
+   Class Comic is derived from class Item. Class Comic is meant to be used as
+   collectible Item in Store Simulation. It inherits the year and grade from
+   Item and add additional members, publisher and title.
+
+*/
+
 #pragma once
 #include "Item.h"
 
@@ -8,9 +17,25 @@ protected:
    std::string title;
 
 public:
+   /* default constructor
+      Preconditions: none
+      Postconditions: new Comic Item
+   */
    Comic();
+
+   /* parameterized Comic constructor
+      Preconditions: none
+      Postconditions: new Comic Item object with members set
+         to provided parameters
+   */
    Comic(int year, std::string grade,
       std::string publisher, std::string title);
+
+   /* default virtual destructor
+      Preconditions: none
+      Postconditions: none
+   */
+   ~Comic();
 
    /* Overloaded equal to operator compares two Comic objects
       Preconditions: item and obj.item are instance of Comic
@@ -58,5 +83,11 @@ public:
    */
    virtual std::string toString() const;
 
+   /* factory method
+      Preconditions: enough memory to allocate for new object
+      Postconditions: new empty Comic object
+   */
+   virtual Comic* create();
+      // return new Comic()
 };
 

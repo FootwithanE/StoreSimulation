@@ -1,3 +1,11 @@
+/* main.h
+   Author: Stephen Foote
+   ---------------------------------------------------------
+   Main handles the file input for the store simulation. It then
+   passes validated information to the Store class for manipulation
+   and management of data.
+*/
+
 #include "Item.h"
 #include "SportsCard.h"
 #include "Coin.h"
