@@ -7,6 +7,11 @@ Transaction::Transaction(std::string item, int count, TransType type) :
 
 std::ostream& operator << (std::ostream& os, const Transaction& obj)
 {
-   os << obj.trans << "\t" << obj.count << "\t" << obj.itemDescription << std::endl;
+   if (obj.trans == Purchase)
+      os << "Purchased";
+   else
+      os << "Bought";
+
+   os << "\t" << obj.count << "\t" << obj.itemDescription << std::endl;
    return os;
 }

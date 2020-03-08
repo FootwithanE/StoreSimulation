@@ -142,12 +142,10 @@
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="Comic.cpp" />
     <ClCompile Include="Customer.cpp" />
-    <ClCompile Include="HashSet.cpp" />
     <ClCompile Include="InventoryBST.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SportsCard.cpp" />
-    <ClCompile Include="Store.cpp" />
     <ClCompile Include="Transaction.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,11 +153,9 @@
     <ClInclude Include="Comic.h" />
     <ClInclude Include="Comparable.h" />
     <ClInclude Include="Customer.h" />
-    <ClInclude Include="HashSet.h" />
     <ClInclude Include="InventoryBST.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="SportsCard.h" />
-    <ClInclude Include="Store.h" />
     <ClInclude Include="Transaction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

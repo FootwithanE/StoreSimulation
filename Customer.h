@@ -41,7 +41,7 @@ public:
       Preconditions: none
       Postconditions: Customer and all transaction information removed
    */
-   virtual ~Customer();
+   virtual ~Customer() {};
 
    /* add a new transaction for this customer
       Precondition: none

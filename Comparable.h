@@ -22,11 +22,11 @@ public:
          default ASCII char '\0'. Non-ASCII char values result in data
          member remaining at default.
    */
-   Comparable();
+   Comparable() {};
 
    /* Virtual destructor for derived Comparable classes
    */
-   virtual ~Comparable();
+   virtual ~Comparable() {};
 
    /* Overloaded equal to operator compares two Comparable objects
       Preconditions: none

@@ -6,11 +6,14 @@
    and management of data.
 */
 
+#include "Comparable.h"
 #include "Item.h"
 #include "SportsCard.h"
 #include "Coin.h"
 #include "Comic.h"
-#include "Store.h"
+//#include "Store.h"
+#include "Customer.h"
+#include "InventoryBST.h"
 #include <iostream>
 
 using namespace std;
@@ -19,7 +22,7 @@ using namespace std;
    Preconditions: file must exits and be in propper format
    Postconditions: initialized item inventory in store
 */
-void initializeItems(ifstream& file, Store& obj);
+//void initializeItems(ifstream& file, Store& obj);
 // while not eof
 // pass next line into store addItem
 //
@@ -29,7 +32,7 @@ void initializeItems(ifstream& file, Store& obj);
    Preconditions: file must exits and be in propper format
    Postconditions: initialized store customer inventory
 */
-void initializeCustomers(ifstream& file, Store& obj);
+//void initializeCustomers(ifstream& file, Store& obj);
 // while not eof
 // pass next line into store addCustomer
 //
@@ -38,7 +41,7 @@ void initializeCustomers(ifstream& file, Store& obj);
    Preconditions: file must exits and be in propper format
    Postconditions: complete requested commands on store
 */
-void commander(ifstream& file, Store& obj);
+//void commander(ifstream& file, Store& obj);
 // while not eof
 // pass next line into store commandDecision
 //
@@ -47,18 +50,35 @@ int main()
 {
 
    // Initialize store
-   Store myStore();
+   //Store myStore();
 
    //ifstream obj -> myfile
    
-   initializeItems(myfile, myStore);
+  // initializeItems(myfile, myStore);
 
    // next file
-   initializeCustomers(myfile, myStore);
+   //initializeCustomers(myfile, myStore);
 
    // next file
-   commander(myfile, myStore);
+   //commander(myfile, myStore);
 
+   Comparable* coin = new Coin(1987, "penny", 0);
+   Comparable* coin2 = new Coin(1986, "penny", 0);
+
+   Customer* me = new Customer(001, "Stephen");
+   me->addTransaction(coin->toString(), 2, Purchase);
+   me->addTransaction(coin2->toString(), 1, Sale);
+
+   cout << me->toString() << endl;
+
+   InventoryBST myInventory;
+   InventoryBST myInventory2;
+   myInventory.insert(coin);
+   myInventory.insert(coin2);
+
+   cout << myInventory << endl;
+   myInventory2 = myInventory;
+   cout << myInventory2;
 
 
    return 0;

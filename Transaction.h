@@ -51,7 +51,7 @@ public:
       Preconditions: none
       Postconditions: Transaction removed
    */
-   ~Transaction();
+   ~Transaction() {};
 
    /* Will print relevant transaction data in easily read format
       Preconditions: none

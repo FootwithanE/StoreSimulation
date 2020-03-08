@@ -35,7 +35,7 @@ public:
       Preconditions: none
       Postconditions: none
    */
-   ~SportsCard();
+   ~SportsCard() {};
 
    /* Overloaded equal to operator compares two SportsCard objects
       Preconditions: item and obj.item are instance of SportsCard

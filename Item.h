@@ -39,7 +39,7 @@ public:
       Preconditions: none
       Postconditions: none
    */
-   virtual ~Item();
+   virtual ~Item() {};
 
    /* Overloaded equal to operator compares two Item objects
      Preconditions: item and obj.item are instance of Item

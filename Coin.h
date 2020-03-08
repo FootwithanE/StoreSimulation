@@ -34,7 +34,7 @@ public:
       Preconditions: none
       Postconditions: none
    */
-   ~Coin();
+   ~Coin() {};
 
    /* Overloaded equal to operator compares two Coin objects
       Preconditions: item and obj.item are instance of Coin

@@ -30,16 +30,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Store.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Customer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Transaction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HashSet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InventoryBST.cpp">
@@ -59,9 +53,6 @@
     <ClInclude Include="SportsCard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Store.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Customer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -69,9 +60,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Transaction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HashSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InventoryBST.h">

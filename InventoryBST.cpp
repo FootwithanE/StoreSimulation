@@ -59,7 +59,7 @@ InventoryNode* InventoryBST::deepCopy(InventoryNode* cur)
       return nullptr;
 
    InventoryNode* newInventoryNode = new InventoryNode;
-   //newInventoryNode->item = new Comparable; // instantiate Item
+   newInventoryNode->item = new Comparable(); // instantiate Item
    *newInventoryNode->item = *cur->item; // assign through de-refernce
    newInventoryNode->frequency = cur->frequency; // transfer frequency
    // call recursive to reach all InventoryNodes

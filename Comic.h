@@ -35,7 +35,7 @@ public:
       Preconditions: none
       Postconditions: none
    */
-   ~Comic();
+   ~Comic() {};
 
    /* Overloaded equal to operator compares two Comic objects
       Preconditions: item and obj.item are instance of Comic
