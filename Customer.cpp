@@ -39,3 +39,8 @@ std::string Customer::toString() const
 
    return os.str();
 }
+
+void Customer::addTransaction(std::string item, int count, TransType type)
+{
+   this->transactions.push_back(Transaction(item, count, type));
+}

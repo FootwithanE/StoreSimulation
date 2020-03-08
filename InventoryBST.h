@@ -25,7 +25,7 @@
 struct InventoryNode
 {
    Comparable* item; // pointer to Comparable class object
-   int frequency; // Frequency of current Comparable Comparable within tree
+   int frequency; // Frequency of current Comparable within tree - counting duplicates
    InventoryNode* left; // pointer to left child
    InventoryNode* right; // pointer to right child
    // Default initialized members

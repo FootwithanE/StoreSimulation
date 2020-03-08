@@ -13,7 +13,7 @@
 
 #pragma once
 #include <sstream>
-#include "Inventory.h"
+#include "InventoryBST.h"
 #include "Customer.h"
 #include "HashSet.h"
 
@@ -26,11 +26,11 @@ class Store
 private:
    // Pointer to inventory (BST) for each item type
    // index of BST type will match hash value for consistency
-   Inventory* inventories[NUM_ITEMS];
+   InventoryBST* inventories[NUM_ITEMS];
    // Customer list by ID
    Customer customersById[MAX_CUSTOMERS];
    // Customers by Name (BST)
-   Inventory* customersByName;
+   InventoryBST* customersByName;
    // Hashtable of Items
    HashSet items;
 
