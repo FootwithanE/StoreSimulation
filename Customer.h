@@ -35,7 +35,7 @@ public:
       Postconditions: new Customer class object, intialized
          to the provided values with an empty transactions vector
    */
-   Customer(int id, std::string name) : id(id), name(name) {};
+   Customer(int id, std::string name);
 
    /* default destructor
       Preconditions: none

@@ -38,15 +38,14 @@ public:
       Preconditions: none
       Postconditions: new transaction class object
    */
-   Transaction() : itemDescription(""), count(0), trans() {};
+   Transaction();
 
    /* Parameterized constructor for Transaction
       Preconditions: none
       Postconditions: new transaction class object, intialized
          to the provided values
    */
-   Transaction(std::string item, int count, TransType type) :
-      itemDescription(item), count(count), trans(type){};
+   Transaction(std::string item, int count, TransType type);
 
    /* Default destructor
       Preconditions: none
@@ -59,6 +58,6 @@ public:
       Postconditions: returns ostream object with transaction type,
          item count, and item description.
    */
-   friend std::ostream& operator << (std::ostream& os, const Transaction& list);
+   friend std::ostream& operator << (std::ostream& os, const Transaction& obj);
 };
 

@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="Comic.cpp" />
-    <ClCompile Include="Comparable.cpp" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="HashSet.cpp" />
     <ClCompile Include="Inventory.cpp" />
