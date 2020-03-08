@@ -1,5 +1,5 @@
-/* Inventory.h
-   Definition of Inventory for Comparable objects
+/* InventoryBST.h
+   Definition of InventoryBST for Comparable objects
    Author: Stephen Foote
    -----------------------------------------------------------------------
    A Binary Search Tree that utilizes a InventoryNode that holds a pointer to a class
@@ -20,70 +20,70 @@
 
    Assumptions:
       -- Used in conjunction with class Comparable
-      -- Frequency will maintain accuracy if InventoryNode is used in Inventory only
+      -- Frequency will maintain accuracy if InventoryNode is used in InventoryBST only
 */
 struct InventoryNode
 {
-   Comparable* Comparable; // pointer to Comparable class object
+   Comparable* item; // pointer to Comparable class object
    int frequency; // Frequency of current Comparable Comparable within tree
    InventoryNode* left; // pointer to left child
    InventoryNode* right; // pointer to right child
    // Default initialized members
-   InventoryNode() : Comparable(nullptr), frequency(1), left(nullptr), right(nullptr) {};
+   InventoryNode() : item(nullptr), frequency(1), left(nullptr), right(nullptr) {};
 };
 
-class Inventory
+class InventoryBST
 {
 
 public:
-   /* Default constructor for class Inventory
+   /* Default constructor for class InventoryBST
       Preconditions: none
-      Postconditions: Inventory object with root pointer to InventoryNode
+      Postconditions: InventoryBST object with root pointer to InventoryNode
          initialized to nullptr
    */
-   Inventory();
-   /* Copy constructor for class Inventory
+   InventoryBST();
+   /* Copy constructor for class InventoryBST
       Preconditions: none
       Postconditions: deep copy of tree, so that no memory locations
          are shared between this and tree
    */
-   Inventory(const Inventory& tree);
+   InventoryBST(const InventoryBST& tree);
    /* Overloaded assignment operator
       Precondition: none
-      Postcondition: A deep copy of tree is made and is assigned to the other Inventory.
+      Postcondition: A deep copy of tree is made and is assigned to the other InventoryBST.
          this == tree returns true.
    */
-   Inventory& operator = (const Inventory& tree);
-   /* Destructor for Inventory objects
+   InventoryBST& operator = (const InventoryBST& tree);
+   /* Destructor for InventoryBST objects
       Preconditions: none
-      Postconditions: Inventory object destroyed and all allocated memory
+      Postconditions: InventoryBST object destroyed and all allocated memory
          freed.
    */
-   ~Inventory();
-   /* makeEmpty clears the Inventory of all InventoryNodes
+   ~InventoryBST();
+   /* makeEmpty clears the InventoryBST of all InventoryNodes
       Preconditions: none
-      Postconditions: All InventoryNodes in the Inventory are destroyed and allocated
-         memory is freed. Inventory object is not destroyed and root is  set
+      Postconditions: All InventoryNodes in the InventoryBST are destroyed and allocated
+         memory is freed. InventoryBST object is not destroyed and root is  set
          back to nullptr.
    */
    void makeEmpty();
-   /* insert adds a Comparable object to the Inventory
+   /* insert adds a Comparable object to the InventoryBST
       Preconditions: pointer to Comparable is used as argument. Pointer should not
          be nullptr. False will be returned if Comparable object is nullptr.
       Postconditions: If instance of Comparable object is already held in a InventoryNode
          within the tree, that InventoryNode has an increase in frequency and false is returned.
          Otherwise, a new InventoryNode, now containing the new Comparable object is inserted into
-         the tree, with a frequency of 1 and true is returned. The Inventory maintains
+         the tree, with a frequency of 1 and true is returned. The InventoryBST maintains
          the properties of a binary search tree.
    */
    bool insert(Comparable* obj);
-   /* Overloaded ostream operator to print Inventory
+   /* Overloaded ostream operator to print InventoryBST
       Preconditions: none
-      Postconditions: Return of ostream object containing inorder frequency table of Inventory.
+      Postconditions: Return of ostream object containing inorder frequency table of InventoryBST.
          Each line will contain in order ASCII character and frequency of occurrence. Empty
-         Inventory will print nothing.
+         InventoryBST will print nothing.
    */
-   friend std::ostream& operator << (std::ostream& os, const Inventory& obj);
+   friend std::ostream& operator << (std::ostream& os, const InventoryBST& obj);
    /* remove searches the tree for a matching Comparable and removes it from the tree
       Preconditions: none
       Postconditions: returns false if no InventoryNode with matching Comparable key can be located.
@@ -102,23 +102,23 @@ public:
       Preconditions: none
       Postconditions: If InventoryNode containing Comparable object is located, the height is
          returned as int. -1 is returned if Comparable object cannot be located within
-         Inventory.
+         InventoryBST.
    */
    int height(const Comparable& obj) const;
    /* Overloaded equal to operator
-      Precondition: two Inventory objects to compare
-      Postcondition: returns true if both Inventory objects are identical. Each InventoryNode of
+      Precondition: two InventoryBST objects to compare
+      Postcondition: returns true if both InventoryBST objects are identical. Each InventoryNode of
          each tree must hold the same Comparable and frequency as the matching InventoryNode in the
          other Tree; otherwise returns false.
    */
-   bool operator == (const Inventory& obj) const;
+   bool operator == (const InventoryBST& obj) const;
    /* Overloaded not equal to operator
-      Precondition: two Inventory objects to compare
-      Postconditions: returns false if both Inventory objects are identical. Each InventoryNode of
+      Precondition: two InventoryBST objects to compare
+      Postconditions: returns false if both InventoryBST objects are identical. Each InventoryNode of
          each tree must hold the same Comparable and frequency as the matching InventoryNode in the
          other Tree; otherwise returns true.
    */
-   bool operator != (const Inventory& obj) const;
+   bool operator != (const InventoryBST& obj) const;
 
 private:
    InventoryNode* root;
@@ -133,7 +133,7 @@ private:
 
    /* private recursive helper method destroyTree is called by destructor and makeEmpty
       Preconditions: none
-      Postconditions: removal of all InventoryNodes and freeing of all memory associated with Inventory
+      Postconditions: removal of all InventoryNodes and freeing of all memory associated with InventoryBST
    */
    void destroyTree(InventoryNode*& root);
 
@@ -142,31 +142,31 @@ private:
       Postconditions: If instance of Comparable object is already held in a InventoryNode
          within the tree, that InventoryNode has an increase in frequency and false is returned.
          Otherwise, a new InventoryNode, now containing the new Comparable object is inserted into
-         the tree, with a frequency of 1 and true is returned. The Inventory maintains
+         the tree, with a frequency of 1 and true is returned. The InventoryBST maintains
          the properties of a binary search tree.
    */
    bool insert(InventoryNode* cur, Comparable* obj);
 
    /* private recursive helper method inOrder is called by overloaded ostream operator
       Preconditions: none
-      Postconditions: ostream object passed by reference will containg Inventory information
+      Postconditions: ostream object passed by reference will containg InventoryBST information
          in order in a frequency table.
    */
    void inOrder(std::ostream& os, InventoryNode* cur) const;
 
    /* private recursive helper method remove is called by public method remove
       Preconditions: valid arguments passed to remove public
-      Postconditions: Returns true if the Comparable key could be located in the Inventory.
+      Postconditions: Returns true if the Comparable key could be located in the InventoryBST.
          If there is more than 1 occurrance, the frequency is reduced by one, otherwise, the
-         InventoryNode is removed from the Inventory. Returns false if the key cannot be located. Maintains
+         InventoryNode is removed from the InventoryBST. Returns false if the key cannot be located. Maintains
          properties of binary search tree.
    */
    bool remove(InventoryNode*& root, const Comparable& key);
 
    /* private recursive helper method deleteInventoryNode is called by private method remove
       Preconditions: the Comparable key was located and frequency == 1
-      Postconditions: InventoryNode containing Comparable key is removed from Inventory. All
-         allocated memory associated with that InventoryNode is freed. Inventory maintains the
+      Postconditions: InventoryNode containing Comparable key is removed from InventoryBST. All
+         allocated memory associated with that InventoryNode is freed. InventoryBST maintains the
          properties of a binary search tree.
    */
    void deleteInventoryNode(InventoryNode*& root);
@@ -188,7 +188,7 @@ private:
    /* private recursive helper method compareTrees is called by overloaded equal to and
       not equal to operators
       Preconditions: is called if root and obj.root are not the same InventoryNode
-      Postconditions: returns true if Inventory objects are identical. All InventoryNodes are in
+      Postconditions: returns true if InventoryBST objects are identical. All InventoryNodes are in
          the same position and contain the same Comparable and frequency; otherwise returns
          false.
    */

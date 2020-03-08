@@ -1,45 +1,45 @@
-/* Inventory.cpp
+/* InventoryBST.cpp
    Definition of Binary Search Tree for Item objects
    Author: Stephen Foote
    -----------------------------------------------------------------------
    A Binary Search Tree that utilizes a InventoryNode that holds a pointer to a class
-   Item object and contains the frequency of that Item item. This
+   Comparable object and contains the frequency of that Comparable item. This
    means there are no duplicated InventoryNodes.
 
    Assumptions:
       -- Will be used in conjunction with class Item
       -- InventoryNode pointers default to nullptr and frequency to 1
-      -- InventoryNode is only initialized when Item object is being inserted
+      -- InventoryNode is only initialized when Comparable object is being inserted
             into the tree
       -- tree root pointer to InventoryNode is initialized to nullptr
 */
 
-#include "Inventory.h"
+#include "InventoryBST.h"
 #include <iostream>
 
-/* Default constructor for class Inventory
+/* Default constructor for class InventoryBST
    Preconditions: none
-   Postconditions: Inventory object with root pointer to InventoryNode
+   Postconditions: InventoryBST object with root pointer to InventoryNode
          initialized to nullptr
 */
-Inventory::Inventory() : root(nullptr)
+InventoryBST::InventoryBST() : root(nullptr)
 {
 }
-/* Copy constructor for class Inventory
+/* Copy constructor for class InventoryBST
    Preconditions: none
    Postconditions: deep copy of tree, so that no memory locations
          are shared between this and tree
 */
-Inventory::Inventory(const Inventory& tree) : root(nullptr)
+InventoryBST::InventoryBST(const InventoryBST& tree) : root(nullptr)
 {
    root = deepCopy(tree.root);
 }
 /* Overloaded assignment operator
    Precondition: none
-   Postcondition: A deep copy of tree is made and is assigned to the other Inventory.
+   Postcondition: A deep copy of tree is made and is assigned to the other InventoryBST.
          this == tree returns true.
 */
-Inventory& Inventory::operator = (const Inventory& tree)
+InventoryBST& InventoryBST::operator = (const InventoryBST& tree)
 {
    // Ensure not the same object
    if (this != &tree)
@@ -53,13 +53,13 @@ Inventory& Inventory::operator = (const Inventory& tree)
    Postconditions: Returns deep copy InventoryNode pointer. Item and frequency is copied,
         but no memory is shared between InventoryNodes.
 */
-InventoryNode* Inventory::deepCopy(InventoryNode* cur)
+InventoryNode* InventoryBST::deepCopy(InventoryNode* cur)
 {
    if (cur == nullptr)
       return nullptr;
 
    InventoryNode* newInventoryNode = new InventoryNode;
-   newInventoryNode->item = new Item; // instantiate Item
+   //newInventoryNode->item = new Comparable; // instantiate Item
    *newInventoryNode->item = *cur->item; // assign through de-refernce
    newInventoryNode->frequency = cur->frequency; // transfer frequency
    // call recursive to reach all InventoryNodes
@@ -68,30 +68,30 @@ InventoryNode* Inventory::deepCopy(InventoryNode* cur)
 
    return newInventoryNode;
 }
-/* Destructor for Inventory objects
+/* Destructor for InventoryBST objects
    Preconditions: none
-   Postconditions: Inventory object destroyed and all allocated memory
+   Postconditions: InventoryBST object destroyed and all allocated memory
          freed.
 */
-Inventory::~Inventory()
+InventoryBST::~InventoryBST()
 {
    destroyTree(root);
 }
-/* makeEmpty clears the Inventory of all InventoryNodes
+/* makeEmpty clears the InventoryBST of all InventoryNodes
    Preconditions: none
-   Postconditions: All InventoryNodes in the Inventory are destroyed and allocated
-         memory is freed. Inventory object is not destroyed and root is  set
+   Postconditions: All InventoryNodes in the InventoryBST are destroyed and allocated
+         memory is freed. InventoryBST object is not destroyed and root is  set
          back to nullptr.
 */
-void Inventory::makeEmpty()
+void InventoryBST::makeEmpty()
 {
    destroyTree(root);
 }
 /* private recursive helper method destroyTree is called by destructor and makeEmpty
    Preconditions: none
-   Postconditions: removal of all InventoryNodes and freeing of all memory associated with Inventory
+   Postconditions: removal of all InventoryNodes and freeing of all memory associated with InventoryBST
 */
-void Inventory::destroyTree(InventoryNode*& root)
+void InventoryBST::destroyTree(InventoryNode*& root)
 {
    if (root != nullptr)
    {
@@ -103,23 +103,23 @@ void Inventory::destroyTree(InventoryNode*& root)
       root = nullptr;
    }
 }
-/* insert adds a Item object to the Inventory
+/* insert adds a Item object to the InventoryBST
    Preconditions: pointer to Item is used as argument.
    Postconditions: If instance of Item object is already held in a InventoryNode
          within the tree, that InventoryNode has an increase in frequency and false is returned.
          If Item == nullptr then false is returned.
          Otherwise, a new InventoryNode, now containing the new Item object is inserted into
-         the tree, with a frequency of 1 and true is returned. The Inventory maintains
+         the tree, with a frequency of 1 and true is returned. The InventoryBST maintains
          the properties of a binary search tree.
 */
-bool Inventory::insert(Item* obj)
+bool InventoryBST::insert(Comparable* obj)
 {
    // nullptr obj not stored
    if (obj == nullptr)
    {
       return false;
    }
-   // if Inventory empty
+   // if InventoryBST empty
    else if (root == nullptr)
    {
       root = new InventoryNode;
@@ -135,10 +135,10 @@ bool Inventory::insert(Item* obj)
    Postconditions: If instance of Item object is already held in a InventoryNode
          within the tree, that InventoryNode has an increase in frequency and false is returned.
          Otherwise, a new InventoryNode, now containing the new Item object is inserted into
-         the tree, with a frequency of 1 and true is returned. The Inventory maintains
+         the tree, with a frequency of 1 and true is returned. The InventoryBST maintains
          the properties of a binary search tree.
 */
-bool Inventory::insert(InventoryNode* cur, Item* obj)
+bool InventoryBST::insert(InventoryNode* cur, Comparable* obj)
 {
    // Occurrance > 0
    if (*obj == *cur->item)
@@ -173,13 +173,13 @@ bool Inventory::insert(InventoryNode* cur, Item* obj)
          return insert(cur->right, obj);
    }
 }
-/* Overloaded ostream operator to print Inventory
+/* Overloaded ostream operator to print InventoryBST
    Preconditions: none
-   Postconditions: Return of ostream object containing inorder frequency table of Inventory.
+   Postconditions: Return of ostream object containing inorder frequency table of InventoryBST.
          Each line will contain in order ASCII character and frequency of occurrence. Empty
-         Inventory will print nothing.
+         InventoryBST will print nothing.
 */
-std::ostream& operator << (std::ostream& os, const Inventory& obj)
+std::ostream& operator << (std::ostream& os, const InventoryBST& obj)
 {
    // call for inorder traversal
    obj.inOrder(os, obj.root);
@@ -187,16 +187,16 @@ std::ostream& operator << (std::ostream& os, const Inventory& obj)
 }
 /* private recursive helper method inOrder is called by overloaded ostream operator
    Preconditions: none
-   Postconditions: ostream object passed by reference will containg Inventory information
+   Postconditions: ostream object passed by reference will containg InventoryBST information
          in order in a frequency table.
 */
-void Inventory::inOrder(std::ostream& os, InventoryNode* cur) const
+void InventoryBST::inOrder(std::ostream& os, InventoryNode* cur) const
 {
    if (cur == nullptr)
       return;
    inOrder(os, cur->left);
    // pull char and frequency from each InventoryNode
-   os << *cur->item << " " << cur->frequency << std::endl;
+   os << cur->item->toString() << " " << cur->frequency << std::endl;
    inOrder(os, cur->right);
 }
 /* remove searches the tree for a matching Item and removes it from the tree
@@ -205,19 +205,19 @@ void Inventory::inOrder(std::ostream& os, InventoryNode* cur) const
          Returns true, and removes one occurrance or the InventoryNode for the last occurrance, if
          Item key located within tree. Binary search tree properties are maintained.
 */
-bool Inventory::remove(const Item& key)
+bool InventoryBST::remove(const Comparable& key)
 {
    // recursive call
    return remove(root, key);
 }
 /* private recursive helper method remove is called by public method remove
    Preconditions: valid arguments passed to remove public
-   Postconditions: Returns true if the Item key could be located in the Inventory.
+   Postconditions: Returns true if the Item key could be located in the InventoryBST.
          If there is more than 1 occurrance, the frequency is reduced by one, otherwise, the
-         InventoryNode is removed from the Inventory. Returns false if the key cannot be located. Maintains
+         InventoryNode is removed from the InventoryBST. Returns false if the key cannot be located. Maintains
          properties of binary search tree.
 */
-bool Inventory::remove(InventoryNode*& root, const Item& key)
+bool InventoryBST::remove(InventoryNode*& root, const Comparable& key)
 {
    if (root == nullptr)
       return false;
@@ -244,11 +244,11 @@ bool Inventory::remove(InventoryNode*& root, const Item& key)
 }
 /* private recursive helper method deleteInventoryNode is called by private method remove
    Preconditions: called if the Item key was located and frequency == 1
-   Postconditions: InventoryNode containing Item key is removed from Inventory. All
-         allocated memory associated with that InventoryNode is freed. Inventory maintains the
+   Postconditions: InventoryNode containing Item key is removed from InventoryBST. All
+         allocated memory associated with that InventoryNode is freed. InventoryBST maintains the
          properties of a binary search tree.
 */
-void Inventory::deleteInventoryNode(InventoryNode*& root)
+void InventoryBST::deleteInventoryNode(InventoryNode*& root)
 {
    // delete leaf
    if (root->left == nullptr && root->right == nullptr)
@@ -278,10 +278,10 @@ void Inventory::deleteInventoryNode(InventoryNode*& root)
    Precondition: called if Item key was located on InventoryNode with two children != nullptr
    Postcondition: the Item item from the minimum possible InventoryNode of the right
          sub tree of root, is located and used to copy into the found InventoryNode meeting the
-         above criteria. The found InventoryNode is then deleted and the Inventory maintains
+         above criteria. The found InventoryNode is then deleted and the InventoryBST maintains
          the properties of a binary search tree.
 */
-InventoryNode* Inventory::findMinValueRight(InventoryNode*& root)
+InventoryNode* InventoryBST::findMinValueRight(InventoryNode*& root)
 {
    // no further left = min
    if (root->left == nullptr)
@@ -301,7 +301,7 @@ InventoryNode* Inventory::findMinValueRight(InventoryNode*& root)
          object exists, a pointer to that Item is returned. If it cannot be
          located within the tree, a nullptr is returned.
 */
-const Item* Inventory::retrieve(const Item& key)
+const Comparable* InventoryBST::retrieve(const Comparable& key)
 {
    // recursive call
    return retrieve(root, key);
@@ -311,7 +311,7 @@ const Item* Inventory::retrieve(const Item& key)
    Postconditions: if Item object located matching provided key, pointer to that
          Item is returned. If it cannot be located, nullptr is returned.
 */
-const Item* Inventory::retrieve(InventoryNode* root, const Item& key)
+const Comparable* InventoryBST::retrieve(InventoryNode* root, const Comparable& key)
 {
    // cannot be found
    if (root == nullptr)
@@ -329,9 +329,9 @@ const Item* Inventory::retrieve(InventoryNode* root, const Item& key)
    Preconditions: none
    Postconditions: If InventoryNode containing Item object is located, the height is
          returned as int. -1 is returned if Item object cannot be located within
-         Inventory.
+         InventoryBST.
 */
-int Inventory::height(const Item& obj) const
+int InventoryBST::height(const Comparable& obj) const
 {
    // find and return InventoryNode with Item
    InventoryNode* cur = findInventoryNodeForHeight(root, obj);
@@ -350,7 +350,7 @@ int Inventory::height(const Item& obj) const
          not a leaf of the tree
    Postconditions: returns height of located InventoryNode as int
 */
-int Inventory::getHeight(InventoryNode* root) const
+int InventoryBST::getHeight(InventoryNode* root) const
 {
    // stop search
    if (root == nullptr)
@@ -373,7 +373,7 @@ int Inventory::getHeight(InventoryNode* root) const
          from argument passed to height is located. If Item is not located
          returns nullptr.
 */
-InventoryNode* Inventory::findInventoryNodeForHeight(InventoryNode* root, const Item& obj) const
+InventoryNode* InventoryBST::findInventoryNodeForHeight(InventoryNode* root, const Comparable& obj) const
 {
    // Cannot be found
    if (root == nullptr)
@@ -390,11 +390,11 @@ InventoryNode* Inventory::findInventoryNodeForHeight(InventoryNode* root, const 
 /* private recursive helper method compareTrees is called by overloaded equal to and
       not equal to operators
    Preconditions: is called if root and obj.root are not the same InventoryNode
-   Postconditions: returns true if Inventory objects are identical. All InventoryNodes are in
+   Postconditions: returns true if InventoryBST objects are identical. All InventoryNodes are in
          the same position and contain the same Item and frequency; otherwise returns
          false.
 */
-bool Inventory::compareTrees(InventoryNode* root, const InventoryNode* other) const
+bool InventoryBST::compareTrees(InventoryNode* root, const InventoryNode* other) const
 {
    // nothing to compare if both nullptr
    if (root == nullptr && other == nullptr)
@@ -408,12 +408,12 @@ bool Inventory::compareTrees(InventoryNode* root, const InventoryNode* other) co
    return false;
 }
 /* Overloaded equal to operator
-   Precondition: two Inventory objects to compare
-   Postcondition: returns true if both Inventory objects are identical. Each InventoryNode of
+   Precondition: two InventoryBST objects to compare
+   Postcondition: returns true if both InventoryBST objects are identical. Each InventoryNode of
          each tree must hold the same Item and frequency as the matching InventoryNode in the
          other Tree; otherwise returns false.
 */
-bool Inventory::operator == (const Inventory& obj) const
+bool InventoryBST::operator == (const InventoryBST& obj) const
 {
    // if -> same root then trees are equal
    if (root == obj.root)
@@ -423,12 +423,12 @@ bool Inventory::operator == (const Inventory& obj) const
       return compareTrees(root, obj.root);
 }
 /* Overloaded not equal to operator
-   Precondition: two Inventory objects to compare
-   Postconditions: returns false if both Inventory objects are identical. Each InventoryNode of
+   Precondition: two InventoryBST objects to compare
+   Postconditions: returns false if both InventoryBST objects are identical. Each InventoryNode of
          each tree must hold the same Item and frequency as the matching InventoryNode in the
          other Tree; otherwise returns true.
 */
-bool Inventory::operator != (const Inventory& obj) const
+bool InventoryBST::operator != (const InventoryBST& obj) const
 {
    // if -> same root then trees are equal
    if (root == obj.root)

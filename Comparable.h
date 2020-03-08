@@ -10,6 +10,7 @@
 #pragma once
 #include <iostream>
 #include <tuple>
+#include <sstream>
 
 class Comparable
 {

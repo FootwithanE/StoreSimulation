@@ -31,5 +31,11 @@ bool Customer::operator > (const Comparable& obj) const
 
 std::string Customer::toString() const
 {
-   return "ALL TRANSACTIONS";
+   std::stringstream os;
+
+   os << name << "\n";
+   for (int i = 0; i < transactions.size(); i++)
+      os << transactions.at(i) << "\n";
+
+   return os.str();
 }
