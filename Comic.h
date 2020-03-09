@@ -45,8 +45,6 @@ public:
          title, year, and grade; false if they do not
    */
    virtual bool operator == (const Comparable& obj) const;
-   // const Comic *c = dynamic_cast(obj)
-   // true if c == this publisher, title, year, and grade
 
 /* Overloaded equal to operator compares two Comic objects
    Preconditions: item and obj.item are instance of Comic
@@ -54,8 +52,6 @@ public:
       publisher, title, year, or grade; false if they are the same
 */
    virtual bool operator != (const Comparable& obj) const;
-   // const Comic *c = dynamic_cast(obj)
-   // true if c != this publisher, title, year, and grade
 
    /* Overloaded less than operator to compare two Comic objects
       Preconditions: item and obj.item are instance of Comic
@@ -63,9 +59,6 @@ public:
          title, year, and then grade; false if it is not
    */
    virtual bool operator < (const Comparable& obj) const;
-   // const Customer *c = dynamic_cast(obj)
-   // return this < c : first by publisher,
-   // title, year, and grade
 
 /* Overloaded less than operator to compare two Comic objects
    Preconditions: item and obj.item are instance of Comic
@@ -73,10 +66,6 @@ public:
       title, year, and grade; false if it is not
 */
    virtual bool operator > (const Comparable& obj) const;
-   // const Customer *c = dynamic_cast(obj)
-   // return this > c : first by player name, 
-   // then by year, then by manufacturer, 
-   // then by grade
 
    /* Output of Comic item through method toString
        Preconditions: none
@@ -90,6 +79,5 @@ public:
       Postconditions: new empty Comic object
    */
    virtual Comic* create();
-      // return new Comic()
 };
 

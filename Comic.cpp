@@ -6,6 +6,16 @@ Comic::Comic(int year, std::string grade,
    std::string publisher, std::string title) :
    Item(year, grade), publisher(publisher), title(title) {};
 
+Comic& Comic::operator = (const Comparable& obj)
+{
+   const Comic& c = static_cast<const Comic&>(obj);
+   year = c.year;
+   grade = c.grade;
+   publisher = c.publisher;
+   title = c.title;
+   return *this;
+}
+
 bool Comic::operator == (const Comparable& obj) const
 {
    const Comic& c = static_cast<const Comic&>(obj);
