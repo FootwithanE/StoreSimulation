@@ -44,8 +44,6 @@ public:
          year, and grade; false if they do not
    */
    virtual bool operator == (const Comparable& obj) const;
-   // const Coin *c = dynamic_cast(obj)
-   // true if c == this type, year, and grade
 
 /* Overloaded equal to operator compares two Coin objects
    Preconditions: item and obj.item are instance of Coin
@@ -53,8 +51,6 @@ public:
       type, year, or grade; false if they are the same
 */
    virtual bool operator != (const Comparable& obj) const;
-   // const Coin *c = dynamic_cast(obj)
-   // true if c != this type, year or grade
 
    /* Overloaded less than operator to compare two Coin objects
       Preconditions: item and obj.item are instance of Coin
@@ -62,9 +58,6 @@ public:
          year, and then grade; false if it is not
    */
    virtual bool operator < (const Comparable& obj) const;
-   // const Customer *c = dynamic_cast(obj)
-   // return this < c : first by type,
-   // year, and then grade
 
 /* Overloaded less than operator to compare two Coin objects
    Preconditions: item and obj.item are instance of Coin
@@ -72,9 +65,6 @@ public:
          year, and then grade; false if it is not
 */
    virtual bool operator > (const Comparable& obj) const;
-   // const Customer *c = dynamic_cast(obj)
-   // return this > c : first by type,
-   // then year and then grade
 
    /* Output of Coin item through method toString
        Preconditions: none
@@ -88,7 +78,6 @@ public:
       Postconditions: new empty Coin object
    */
    virtual Coin* create();
-      // return new Coin()
 
 };
 

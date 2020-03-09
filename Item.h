@@ -49,8 +49,6 @@ public:
         year and grade; false if they do not
   */
    virtual bool operator == (const Comparable& obj) const;
-   // const Item *c = dynamic_cast(obj)
-   // true if c == this year and grade
 
 /* Overloaded equal to operator compares two Item objects
    Preconditions: item and obj.item are instance of Item
@@ -58,8 +56,6 @@ public:
       year or grade; false if they are the same
 */
    virtual bool operator != (const Comparable& obj) const;
-   // const Item *c = dynamic_cast(obj)
-   // true if c != this year or grade
 
    /* Overloaded less than operator to compare two Item objects
       Preconditions: item and obj.item are instance of Item
@@ -67,8 +63,6 @@ public:
          year and then grade; false if it is not
    */
    virtual bool operator < (const Comparable& obj) const;
-   // const Customer *c = dynamic_cast(obj)
-   // return this < c : first by year and then grade
 
 /* Overloaded less than operator to compare two Item objects
    Preconditions: item and obj.item are instance of Item
@@ -76,8 +70,6 @@ public:
       year and then grade; false if it is not
 */
    virtual bool operator > (const Comparable& obj) const;
-   // const Customer *c = dynamic_cast(obj)
-   // return this > c : first by year and then grade
 
    /* Output of Item through method toString
       Preconditions: none

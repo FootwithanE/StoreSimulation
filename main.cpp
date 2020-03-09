@@ -11,7 +11,7 @@
 #include "SportsCard.h"
 #include "Coin.h"
 #include "Comic.h"
-//#include "Store.h"
+#include "Store.h"
 #include "Customer.h"
 #include "InventoryBST.h"
 #include <iostream>
