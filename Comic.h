@@ -37,6 +37,8 @@ public:
    */
    ~Comic() {};
 
+   Comic& operator = (const Comparable& obj);
+
    /* Overloaded equal to operator compares two Comic objects
       Preconditions: item and obj.item are instance of Comic
       Postcondition: true if both Comic objects hold the same publisher,

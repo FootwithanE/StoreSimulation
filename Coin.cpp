@@ -6,6 +6,15 @@ Coin::Coin() :
 Coin::Coin(int year, std::string type, int grade) :
    Item(year, ""), type(type), grade(grade) {};
 
+Coin& Coin::operator = (const Comparable& obj)
+{
+   const Coin& c = static_cast<const Coin&>(obj);
+   year = c.year;
+   type = c.type;
+   grade = c.grade;
+   return *this;
+}
+
 bool Coin::operator == (const Comparable& obj) const
 {
    const Coin& c = static_cast<const Coin &>(obj);

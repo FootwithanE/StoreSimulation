@@ -5,6 +5,15 @@ Customer::Customer() : id(-1), name(""), transactions() {};
 Customer::Customer(int id, std::string name) : 
    id(id), name(name), transactions() {};
 
+Customer& Customer::operator = (const Comparable& obj)
+{
+   const Customer& s = static_cast<const Customer&>(obj);
+   id = s.id;
+   name = s.name;
+   transactions = s.transactions;
+   return *this;
+}
+
 bool Customer::operator == (const Comparable& obj) const
 {
    const Customer& s = static_cast<const Customer&>(obj);
@@ -33,9 +42,9 @@ std::string Customer::toString() const
 {
    std::stringstream os;
 
-   os << name << "\n";
+   os << name;
    for (int i = 0; i < transactions.size(); i++)
-      os << transactions.at(i) << "\n";
+      os << "\n" << transactions.at(i);
 
    return os.str();
 }

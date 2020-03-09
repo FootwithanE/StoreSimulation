@@ -66,6 +66,7 @@ int main()
    Comparable* coin2 = new Coin(1986, "penny", 0);
 
    Customer* me = new Customer(001, "Stephen");
+   Customer* me2 = new Customer(002, "Megan");
    me->addTransaction(coin->toString(), 2, Purchase);
    me->addTransaction(coin2->toString(), 1, Sale);
 
@@ -76,9 +77,15 @@ int main()
    myInventory.insert(coin);
    myInventory.insert(coin2);
 
+   InventoryBST myCustomers;
+   myCustomers.insert(me);
+   myCustomers.insert(me2);
+
    cout << myInventory << endl;
    myInventory2 = myInventory;
-   cout << myInventory2;
+   cout << myInventory2 << endl;
+   cout << myCustomers << endl;
+
 
 
    return 0;

@@ -6,6 +6,14 @@ Item::Item() : year(0), grade("") {};
 Item::Item(int year, std::string grade) :
    year(year), grade(grade) {};
 
+Item& Item::operator = (const Comparable& obj)
+{
+   const Item& i = static_cast<const Item&>(obj);
+   grade = i.grade;
+   year = i.year;
+   return *this;
+}
+
 bool Item::operator == (const Comparable& obj) const
 {
    const Item& i = static_cast<const Item&>(obj);

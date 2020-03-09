@@ -43,6 +43,8 @@ public:
    */
    virtual ~Customer() {};
 
+   Customer& operator = (const Comparable& obj);
+
    /* add a new transaction for this customer
       Precondition: none
       Postcondition: new transaction history add to end of transactions

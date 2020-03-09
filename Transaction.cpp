@@ -12,6 +12,6 @@ std::ostream& operator << (std::ostream& os, const Transaction& obj)
    else
       os << "Bought";
 
-   os << "\t" << obj.count << "\t" << obj.itemDescription << std::endl;
+   os << "\t" << obj.count << "\t" << obj.itemDescription;
    return os;
 }

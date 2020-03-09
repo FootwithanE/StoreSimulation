@@ -37,6 +37,8 @@ public:
    */
    ~SportsCard() {};
 
+   SportsCard& operator = (const Comparable& obj);
+
    /* Overloaded equal to operator compares two SportsCard objects
       Preconditions: item and obj.item are instance of SportsCard
       Postcondition: true if both SportsCard objects hold the same player,

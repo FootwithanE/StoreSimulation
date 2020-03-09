@@ -59,8 +59,8 @@ InventoryNode* InventoryBST::deepCopy(InventoryNode* cur)
       return nullptr;
 
    InventoryNode* newInventoryNode = new InventoryNode;
-   newInventoryNode->item = new Comparable(); // instantiate Item
-   *newInventoryNode->item = *cur->item; // assign through de-refernce
+   //newInventoryNode->item = new Comparable(); // instantiate Item
+   newInventoryNode->item = cur->item; // assign through de-refernce
    newInventoryNode->frequency = cur->frequency; // transfer frequency
    // call recursive to reach all InventoryNodes
    newInventoryNode->left = deepCopy(cur->left);
@@ -97,7 +97,7 @@ void InventoryBST::destroyTree(InventoryNode*& root)
    {
       destroyTree(root->left);
       destroyTree(root->right);
-      delete root->item; // Delete Item
+      //delete root->item; // Delete Item
       root->item = nullptr;
       delete root; // Delete InventoryNode
       root = nullptr;
@@ -195,7 +195,7 @@ void InventoryBST::inOrder(std::ostream& os, InventoryNode* cur) const
    if (cur == nullptr)
       return;
    inOrder(os, cur->left);
-   // pull char and frequency from each InventoryNode
+   // pull item and frequency from each InventoryNode
    os << cur->item->toString() << " " << cur->frequency << std::endl;
    inOrder(os, cur->right);
 }

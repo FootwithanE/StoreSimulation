@@ -41,6 +41,8 @@ public:
    */
    virtual ~Item() {};
 
+   Item& operator = (const Comparable& obj);
+
    /* Overloaded equal to operator compares two Item objects
      Preconditions: item and obj.item are instance of Item
      Postcondition: true if both Item objects hold the same
